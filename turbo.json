@@ -1,0 +1,24 @@
+{
+  "baseBranch": "origin/main",
+  "pipeline": {
+    "lint": {
+      "outputs": []
+    },
+    "test": {
+      "outputs": []
+    },
+    "build:css": {
+      "outputs": ["./app/tailwind.css"]
+    },
+    "build": {
+      "dependsOn": ["build:css"],
+      "outputs": ["./api/_build", "./public/_build", "./dist"]
+    },
+    "dev:css": {
+      "cache": false
+    },
+    "dev": {
+      "cache": false
+    }
+  }
+}

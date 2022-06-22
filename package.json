@@ -1,0 +1,29 @@
+{
+  "name": "louise-new-website",
+  "version": "1.0.0",
+  "private": true,
+  "author": "Matt Pocock",
+  "license": "MIT",
+  "scripts": {
+    "dev": "yarn turbo run dev dev:css",
+    "w": "yarn workspace web",
+    "cms": "yarn workspace cms",
+    "postinstall": "manypkg check",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx,json}": "prettier --write"
+  },
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
+  "dependencies": {
+    "@manypkg/cli": "^0.19.1",
+    "husky": ">=6",
+    "lint-staged": ">=10",
+    "prettier": "^2.3.1",
+    "turbo": "^1.2.16"
+  }
+}
