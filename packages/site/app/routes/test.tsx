@@ -1,9 +1,10 @@
 import { json } from '@remix-run/node';
 import { useLoaderData } from '@remix-run/react';
 import * as fs from 'fs/promises';
+import * as path from 'path';
 
 export const loader = async () => {
-  const files = await fs.readdir(process.cwd());
+  const files = await fs.readdir(path.resolve(process.cwd(), '../'));
 
   return json(files);
 };
