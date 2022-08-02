@@ -37,22 +37,24 @@ export const Layout = ({ children }: { children?: React.ReactNode }) => {
         <p>
           <span className="mr-2">👋</span> Looking for Matt's TypeScript course?
         </p>
-        <div className="flex items-center">
-          <a href="https://totaltypescript.com" className="font-bold">
-            Learn more
-          </a>
+        <a
+          href="https://totaltypescript.com"
+          className="flex items-center px-4 py-1 pr-3 text-sm font-bold tracking-tight bg-blue-900 rounded"
+        >
+          Learn more
           <ArrowRight className="w-4 h-4 ml-1" />
-        </div>
+        </a>
       </div>
       <nav className="max-w-4xl px-4 py-4 mx-auto">
         <div className="flex flex-col space-y-4 md:flex-row md:space-y-0">
           <Link
-            className="flex-1 text-2xl tracking-tight text-stone-800"
+            className="flex items-center flex-1 space-x-3 text-xl font-semibold tracking-tighter text-gray-800"
             to="/"
           >
-            Matt Pocock
+            <img src="/favicon.png" className="h-8"></img>
+            <span>Matt Pocock</span>
           </Link>
-          <div className="flex flex-col space-y-2 text-base tracking-tight md:space-y-0 md:flex-row md:space-x-8 text-stone-700 md:items-center">
+          <div className="flex flex-col space-y-2 text-base tracking-tight text-gray-700 md:space-y-0 md:flex-row md:space-x-8 md:items-center">
             {links.map((link) => {
               const classes = link.bold ? 'font-semibold text-blue-600' : '';
               if (!link.href.startsWith('/')) {
