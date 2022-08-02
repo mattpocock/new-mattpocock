@@ -1,4 +1,8 @@
-import type { LinksFunction, MetaFunction } from '@remix-run/node';
+import type {
+  HeadersFunction,
+  LinksFunction,
+  MetaFunction,
+} from '@remix-run/node';
 import {
   Links,
   LiveReload,
@@ -43,6 +47,12 @@ export const links: LinksFunction = () => {
       type: 'image/png',
     },
   ];
+};
+
+export const headers: HeadersFunction = () => {
+  return {
+    'Cache-Control': 'max-age=1800',
+  };
 };
 
 export default function App() {
