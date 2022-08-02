@@ -1,15 +1,14 @@
 import {
   Links,
-  LinksFunction,
   LiveReload,
   Meta,
   Outlet,
   Scripts,
   ScrollRestoration,
-} from 'remix';
-import type { MetaFunction } from 'remix';
+} from '@remix-run/react';
 import styles from './tailwind.css';
 import { Layout } from './lib/Layout';
+import { LinksFunction, MetaFunction } from '@remix-run/node';
 
 export const meta: MetaFunction = () => {
   return { title: 'Matt Pocock' };

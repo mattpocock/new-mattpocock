@@ -4,10 +4,10 @@ import { DataFunctionArgs } from '@remix-run/server-runtime';
 import fm from 'front-matter';
 import { z } from 'zod';
 import * as remarkShikiTwoslash from 'remark-shiki-twoslash';
-import { LinksFunction, MetaFunction } from '@remix-run/react/routeModules';
 import ortaStyles from '../orta-site.css';
-import { useLoaderData } from 'remix';
 import dayjs from 'dayjs';
+import { LinksFunction, MetaFunction } from '@remix-run/node';
+import { useLoaderData } from '@remix-run/react';
 
 export const links: LinksFunction = () => {
   return [
