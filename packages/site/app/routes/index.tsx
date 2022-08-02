@@ -4,7 +4,11 @@ import dayjs from 'dayjs';
 import allContent from '../content.json';
 
 export const loader = async () => {
-  return json(Object.values(allContent));
+  return json(
+    Object.values(allContent)
+      .filter((file) => !file.draft)
+      .sort((a, b) => b.rawPublishedAt.localeCompare(a.rawPublishedAt)),
+  );
 };
 
 export default function Index() {
