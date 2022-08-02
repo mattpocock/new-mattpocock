@@ -3,19 +3,13 @@ export default function Index() {
     <div className="max-w-xl py-16 mx-auto prose prose-lg">
       <h1 className="text-center">Hey, I'm Matt!</h1>
       <p>
-        I'm a developer advocate, engineer, and{' '}
+        I'm a developer advocate, full-stack engineer, and{' '}
         <a href="https://twitter.com/wesbos/status/1385610868805685248">
           the Rodney Mullen of TypeScript
         </a>
-        . I'm working on a video course on{' '}
-        <a href="https://advancedtypescript.dev">Advanced TypeScript</a> as well
-        as a series of upcoming workshops.
-      </p>
-      <p>
-        I work for <a href="https://stately.ai">Stately</a> as a member of the{' '}
-        <a href="https://github.com/statelyai/xstate">XState</a> core team.
-        We're building a low-code tool for building complex frontend or backend
-        applications, using statecharts.
+        . I'm working on a video course called{' '}
+        <a href="https://totaltypescript.com">Total TypeScript</a> as well as a
+        series of workshops.
       </p>
       <p>
         As an ex-voice coach, talking to folks about code is my natural habitat.
