@@ -33,7 +33,7 @@ const links = [
 export const Layout = ({ children }: { children?: React.ReactNode }) => {
   return (
     <div className="">
-      <div className="flex flex-col items-center justify-center px-4 py-3 space-y-2 text-white bg-blue-800 sm:space-y-0 sm:flex-row sm:space-x-8">
+      <div className="flex flex-col items-center justify-center px-4 py-3 space-y-2 text-white bg-blue-800 sm:space-y-0 sm:flex-row sm:space-x-4">
         <p>
           <span className="mr-2">👋</span> Looking for Matt's TypeScript course?
         </p>
