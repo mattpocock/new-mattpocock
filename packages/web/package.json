@@ -13,7 +13,6 @@
   "dependencies": {
     "@remix-run/react": "^1.6.1",
     "@remix-run/serve": "^1.6.1",
-    "@remix-run/vercel": "^1.6.1",
     "dayjs": "^1.11.3",
     "front-matter": "^4.0.2",
     "hast-util-to-html": "^8.0.3",
