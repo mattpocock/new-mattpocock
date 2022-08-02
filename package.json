@@ -5,8 +5,8 @@
   "author": "Matt Pocock",
   "license": "MIT",
   "scripts": {
-    "dev": "yarn turbo run dev dev:css",
-    "w": "yarn workspace web",
+    "dev": "yarn turbo run dev dev:css dev:json",
+    "s": "yarn workspace site",
     "cms": "yarn workspace cms",
     "postinstall": "manypkg check",
     "prepare": "husky install"

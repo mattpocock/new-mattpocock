@@ -10,14 +10,29 @@
     "build:css": {
       "outputs": ["./app/tailwind.css"]
     },
+    "build:json": {
+      "outputs": ["./app/content.json"]
+    },
     "build": {
-      "dependsOn": ["build:css"],
-      "outputs": ["./api/_build", "./public/_build", "./dist"]
+      "dependsOn": ["build:css", "build:json"],
+      "outputs": [
+        "./api/_assets",
+        "./public/build",
+        "./api/index.js",
+        "./api/index.js.map"
+      ]
     },
     "dev:css": {
       "cache": false
     },
+    "dev:json": {
+      "cache": false
+    },
     "dev": {
+      "cache": false
+    },
+    "serve": {
+      "dependsOn": ["build"],
       "cache": false
     }
   }
