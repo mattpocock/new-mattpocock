@@ -6,6 +6,7 @@ node_modules
 .output
 
 /build/
+/api/
 /public/build
 /api/index.js
 /api/index.js.map
