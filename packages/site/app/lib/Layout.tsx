@@ -17,7 +17,7 @@ const links = [
   },
   {
     label: 'YouTube',
-    href: '/twitch',
+    href: '/youtube',
   },
   {
     label: 'Twitter',
