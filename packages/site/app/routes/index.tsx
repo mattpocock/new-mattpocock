@@ -1,26 +1,15 @@
 import { json } from '@remix-run/node';
 import { Link, useLoaderData } from '@remix-run/react';
 import dayjs from 'dayjs';
-import * as fs from 'fs/promises';
-import { getBlogContent } from '~/lib/getBlogContent';
-import { getContentPath } from '~/lib/getContentPath';
+import allContent from '../content.json';
 
 export const loader = async () => {
-  const contentPath = getContentPath();
-
-  const files = await fs.readdir(contentPath);
-
-  const resolvedFiles = files
-    .map((file) => getBlogContent(`${contentPath}/${file}`))
-    .filter((file) => !file.draft)
-    .sort((a, b) => b.rawPublishedAt.localeCompare(a.rawPublishedAt));
-  return json(resolvedFiles);
+  return json(Object.values(allContent));
 };
 
 export default function Index() {
   const data = useLoaderData<typeof loader>();
 
-  console.log(data);
   return (
     <div className="max-w-xl py-16 mx-auto">
       <div className="prose prose-lg prose-a:no-underline prose-a:text-blue-600">

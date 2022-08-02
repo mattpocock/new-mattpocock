@@ -1,12 +1,10 @@
 import type { LinksFunction } from '@remix-run/node';
 import { useLoaderData } from '@remix-run/react';
-import { UseDataFunctionReturn } from '@remix-run/react/dist/components';
+import type { UseDataFunctionReturn } from '@remix-run/react/dist/components';
 import type { DataFunctionArgs } from '@remix-run/server-runtime';
-import * as fs from 'fs';
-import * as remarkShikiTwoslash from 'remark-shiki-twoslash';
-import { getBlogContent } from '~/lib/getBlogContent';
-import { getContentPath } from '~/lib/getContentPath';
+import type { BlogContent } from '~/lib/getBlogContent';
 import { ArrowRight } from '~/lib/Icons';
+import allContent from '../content.json';
 import ortaStyles from '../orta-site.css';
 
 export const links: LinksFunction = () => {
@@ -32,37 +30,18 @@ export const meta = (result: {
 };
 
 export const loader = async ({ params }: DataFunctionArgs) => {
-  const contentPath = getContentPath();
+  const content: BlogContent | undefined = (allContent as any)[params.slug!];
 
-  const fullContentPath = `${contentPath}/${params.slug}.md`;
-  if (!fs.existsSync(fullContentPath)) {
-    throw new Response('Not found', {
+  if (!content) {
+    throw new Response('Not Found', {
       status: 404,
     });
   }
-
-  const { remark } = await import('remark');
-
-  const { body, cleanPublishedAt, title, excerpt } =
-    getBlogContent(fullContentPath);
-
-  const markdownAST = remark().parse(body);
-
-  await remarkShikiTwoslash.default({
-    theme: 'dark-plus',
-  })(markdownAST);
-
-  const { toHast } = await import('mdast-util-to-hast');
-  const { toHtml } = await import('hast-util-to-html');
-
-  const hAST = toHast(markdownAST, { allowDangerousHtml: true });
-  const html = toHtml(hAST!, { allowDangerousHtml: true });
-
   return {
-    html,
-    title: title,
-    published: cleanPublishedAt,
-    excerpt: excerpt,
+    html: content.html,
+    title: content.title,
+    published: content.cleanPublishedAt,
+    excerpt: content.excerpt,
   };
 };
 
@@ -82,7 +61,7 @@ export default function Post() {
             }}
           ></div>
         </div>
-        <div className="px-8 py-8 mx-auto mt-16 space-y-6 prose-lg text-white bg-gray-800 rounded-lg max-w-prose">
+        <div className="max-w-xl px-8 py-8 mx-auto mt-16 space-y-6 prose-lg text-white bg-gray-800 rounded-lg">
           <h2 className="my-0 text-4xl font-bold tracking-tight">
             Enjoyed this article?
           </h2>

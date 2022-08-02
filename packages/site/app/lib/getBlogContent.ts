@@ -32,3 +32,5 @@ export const getBlogContent = (fullContentPath: string) => {
     cleanPublishedAt,
   };
 };
+
+export type BlogContent = ReturnType<typeof getBlogContent> & { html: string };
