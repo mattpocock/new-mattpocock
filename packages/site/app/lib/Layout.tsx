@@ -73,7 +73,9 @@ export const Layout = ({ children }: { children?: React.ReactNode }) => {
           </div>
         </div>
       </nav>
-      <main className="max-w-4xl px-4 mx-auto">{children}</main>
+      <main className="max-w-4xl px-4 mx-auto prose-a:no-underline prose-a:text-blue-600">
+        {children}
+      </main>
     </div>
   );
 };

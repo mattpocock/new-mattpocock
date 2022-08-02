@@ -1,8 +1,6 @@
 ---
 title: 'How to ask a question about TypeScript'
 publishedAt: '2022-06-24'
-draft: true
-excerpt: "TypeScript is a complex beast. It can be hard to find answers to difficult questions, especially if you're working on the more advanced stuff."
 ---
 
 TypeScript is a complex beast. It can be hard to find answers to difficult questions, especially if you're working on the more advanced stuff. Generics, type transformations, conditional types... It can get hardcore.
@@ -80,11 +78,11 @@ There's even an unofficial TS playground link shortener - [tsplay.dev](https://t
 
 **Don't**
 
-_I've been trying to work out how to remove the index attribute from an object - here's 4 screenshots and an error message. I even added arrows!_
+_I've been trying to work out how to remove the index attribute from an object - could you give me a hand?_
 
 **Do**
 
-_I've been trying to work out how to remove the index attribute from an object. Here's a playground showing what I mean._
+_I've been trying to work out how to remove the index attribute from an object._
 
 ## 2. Frame it as a challenge
 
