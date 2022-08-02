@@ -1,13 +1,31 @@
-import * as path from 'path';
-import * as fs from 'fs';
-import { DataFunctionArgs } from '@remix-run/server-runtime';
-import fm from 'front-matter';
-import { z } from 'zod';
-import * as remarkShikiTwoslash from 'remark-shiki-twoslash';
-import ortaStyles from '../orta-site.css';
-import dayjs from 'dayjs';
 import { LinksFunction, MetaFunction } from '@remix-run/node';
 import { useLoaderData } from '@remix-run/react';
+import { DataFunctionArgs } from '@remix-run/server-runtime';
+import dayjs from 'dayjs';
+import fm from 'front-matter';
+import * as fs from 'fs';
+import * as path from 'path';
+import * as remarkShikiTwoslash from 'remark-shiki-twoslash';
+import { z } from 'zod';
+import ortaStyles from '../orta-site.css';
+
+const markdownToHtml = async (body: string) => {
+  const { remark } = await import('remark');
+
+  const markdownAST = remark().parse(body);
+
+  await remarkShikiTwoslash.default({
+    theme: 'dark-plus',
+  })(markdownAST);
+
+  const { toHast } = await import('mdast-util-to-hast');
+  const { toHtml } = await import('hast-util-to-html');
+
+  const hAST = toHast(markdownAST, { allowDangerousHtml: true });
+  const html = toHtml(hAST!, { allowDangerousHtml: true });
+
+  return html;
+};
 
 export const links: LinksFunction = () => {
   return [
@@ -43,22 +61,8 @@ export const loader = async ({ params }: DataFunctionArgs) => {
 
   const parsedAttributes = PageAttributes.parse(attributes);
 
-  const { remark } = await import('remark');
-
-  const markdownAST = remark().parse(body);
-
-  await remarkShikiTwoslash.default({
-    theme: 'dark-plus',
-  })(markdownAST);
-
-  const { toHast } = await import('mdast-util-to-hast');
-  const { toHtml } = await import('hast-util-to-html');
-
-  const hAST = toHast(markdownAST, { allowDangerousHtml: true });
-  const html = toHtml(hAST!, { allowDangerousHtml: true });
-
   return {
-    html,
+    html: await markdownToHtml(body),
     title: parsedAttributes.title,
     published: dayjs(parsedAttributes.publishedAt).format('MMM D YYYY'),
   };
