@@ -7,7 +7,7 @@
     "serve": "remix-serve api/index.js",
     "build": "remix build && npm run cp-content",
     "build:css": "tailwindcss -o ./app/tailwind.css",
-    "cp-content": "cp -r ./content api/content",
+    "cp-content": "cp -r ./content public/content",
     "dev": "remix dev",
     "dev:css": "tailwindcss -o ./app/tailwind.css --watch"
   },
