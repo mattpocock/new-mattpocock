@@ -2,11 +2,11 @@ import { json } from '@remix-run/node';
 import { Link, useLoaderData } from '@remix-run/react';
 import dayjs from 'dayjs';
 import * as fs from 'fs/promises';
-import * as path from 'path';
 import { getBlogContent } from '~/lib/getBlogContent';
+import { getContentPath } from '~/lib/getContentPath';
 
 export const loader = async () => {
-  const contentPath = path.resolve(__dirname, '../content');
+  const contentPath = getContentPath();
 
   const files = await fs.readdir(contentPath);
 

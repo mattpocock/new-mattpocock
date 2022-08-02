@@ -8,8 +8,6 @@ node_modules
 /build/
 /api/
 /public/build
-/api/index.js
-/api/index.js.map
 
 /app/tailwind.css
 .turbo

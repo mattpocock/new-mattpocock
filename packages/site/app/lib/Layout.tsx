@@ -51,7 +51,7 @@ export const Layout = ({ children }: { children?: React.ReactNode }) => {
             className="flex items-center flex-1 space-x-3 text-xl font-semibold tracking-tighter text-gray-800"
             to="/"
           >
-            <img src="/favicon.png" className="h-8"></img>
+            <img src="/favicon.png" alt="Site icon" className="h-8"></img>
             <span>Matt Pocock</span>
           </Link>
           <div className="flex flex-col space-y-2 text-base tracking-tight text-gray-700 md:space-y-0 md:flex-row md:space-x-8 md:items-center">

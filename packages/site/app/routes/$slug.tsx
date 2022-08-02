@@ -1,11 +1,11 @@
-import type { LinksFunction, MetaFunction } from '@remix-run/node';
+import type { LinksFunction } from '@remix-run/node';
 import { useLoaderData } from '@remix-run/react';
 import { UseDataFunctionReturn } from '@remix-run/react/dist/components';
 import type { DataFunctionArgs } from '@remix-run/server-runtime';
 import * as fs from 'fs';
-import * as path from 'path';
 import * as remarkShikiTwoslash from 'remark-shiki-twoslash';
 import { getBlogContent } from '~/lib/getBlogContent';
+import { getContentPath } from '~/lib/getContentPath';
 import { ArrowRight } from '~/lib/Icons';
 import ortaStyles from '../orta-site.css';
 
@@ -32,7 +32,7 @@ export const meta = (result: {
 };
 
 export const loader = async ({ params }: DataFunctionArgs) => {
-  const contentPath = path.resolve(__dirname, '../content');
+  const contentPath = getContentPath();
 
   const fullContentPath = `${contentPath}/${params.slug}.md`;
   if (!fs.existsSync(fullContentPath)) {

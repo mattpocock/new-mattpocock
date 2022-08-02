@@ -12,12 +12,21 @@
     },
     "build": {
       "dependsOn": ["build:css"],
-      "outputs": ["./api/_build", "./public/_build", "./dist"]
+      "outputs": [
+        "./api/_assets",
+        "./public/build",
+        "./api/index.js",
+        "./api/index.js.map"
+      ]
     },
     "dev:css": {
       "cache": false
     },
     "dev": {
+      "cache": false
+    },
+    "serve": {
+      "dependsOn": ["build"],
       "cache": false
     }
   }

@@ -4,6 +4,7 @@
   "private": true,
   "sideEffects": false,
   "scripts": {
+    "serve": "remix-serve api/index.js",
     "build": "remix build",
     "build:css": "tailwindcss -o ./app/tailwind.css",
     "dev": "remix dev",
