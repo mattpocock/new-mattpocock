@@ -1,17 +1,34 @@
+import type { LinksFunction, MetaFunction } from '@remix-run/node';
 import {
   Links,
   LiveReload,
   Meta,
   Outlet,
-  Scripts,
   ScrollRestoration,
 } from '@remix-run/react';
-import styles from './tailwind.css';
 import { Layout } from './lib/Layout';
-import { LinksFunction, MetaFunction } from '@remix-run/node';
+import styles from './tailwind.css';
 
 export const meta: MetaFunction = () => {
-  return { title: 'Matt Pocock' };
+  return {
+    title: 'Matt Pocock',
+    description:
+      'Check out how Matt Pocock can help you level up as a TypeScript engineer.',
+    'twitter:site': '@mattpocockuk',
+    'twitter:creator': '@mattpocockuk',
+    'twitter:card': 'summary_large_image',
+    'twitter:title': 'Matt Pocock',
+    'twitter:description':
+      'Check out how Matt Pocock can help you level up as a TypeScript engineer.',
+    'twitter:image': 'https://mattpocock.com/og-image.jpg',
+    'og:title': 'Matt Pocock',
+    'og:description':
+      'Check out how Matt Pocock can help you level up as a TypeScript engineer.',
+    'og:image': 'https://mattpocock.com/og-image.jpg',
+    'og:url': 'https://mattpocock.com',
+    'og:type': 'website',
+    'og:site_name': 'Matt Pocock',
+  };
 };
 
 export const links: LinksFunction = () => {
